@@ -10,7 +10,7 @@ def getLinks(articleUrl):
     bsObj = BeautifulSoup(html)
     return bsObj.find("div",{"id":"bodyContent"}).findAll("a",href=re.compile("^(/wiki/)((?!:).)*$"))
 
-links = getLink("/wiki/China")
+links = getLinks("/wiki/China")
 while len(links) > 0:
     newArticle = links[random.randint(0, len(links)-1)].attrs["href"]
     print(newArticle)
